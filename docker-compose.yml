@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+
+  front-prod:
+    container_name: front-prod
+    build:
+      context: .
+      dockerfile: ./Front/Dockerfile
+    ports:
+      - '80:80'
+  back-prod:
+    container_name: back-prod
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - '3000:8080'

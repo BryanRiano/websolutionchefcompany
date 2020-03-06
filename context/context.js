@@ -2,9 +2,11 @@ const Sequelize = require('sequelize');
 const ClientModel = require('../models/client');
 const InvoiceModel = require('../models/invoice');
 const PaymentModel = require('../models/payment');
+const config = require('../config/config.json');
+const globals = config['database'];
 
-const sequelize = new Sequelize('energycompany', 'root', '', {
-    host: 'localhost',
+const sequelize = new Sequelize(globals.database, globals.user, globals.password, {
+    host: globals.host,
     dialect: 'mysql',
     pool: {
         max: 10,
