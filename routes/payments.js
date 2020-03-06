@@ -1,9 +1,17 @@
+const { Payment, Invoice } = require('../context/context');
+
 module.exports = function (app) {
 
     app.route('/api/payment/create').post((req, res, next) => {
         if (req.body) {
-            Invoice.create(req.body)
-                .then(user => res.json(user))
+            Payment.create(req.body)
+                .then(Invoice.update({pago: true}, {
+                    where: {
+                      id: req.body.factura
+                    }
+                  }).then((users) => {
+                    res.json(users)
+                  }))
                 .catch(error => res.json(error))
         } else {
             res.status(500).send({
@@ -14,7 +22,7 @@ module.exports = function (app) {
     });
 
     app.route('/api/payment/list').get((req, res, next) => {
-        Invoice.findAll()
+        Payment.findAll()
             .then(users => {
                 res.json(users)
             })
@@ -24,7 +32,7 @@ module.exports = function (app) {
     });
 
     app.route('/api/payment/invoice/:id').get((req, res, next) => {
-        Invoice.findAll()
+        Payment.findAll()
             .then(users => {
                 res.json(users)
             })

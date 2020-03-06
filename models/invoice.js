@@ -8,6 +8,7 @@ module.exports = (sequelize, type) => {
         idcliente: type.INTEGER,
         valor: type.DECIMAL,
         consumo: type.INTEGER,
-        fecharegistro: type.DATE
+        pago: type.BOOLEAN,
+        fecharegistro: {type: type.DATE, defaultValue: type.NOW}
     })
   }

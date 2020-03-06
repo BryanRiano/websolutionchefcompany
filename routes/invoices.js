@@ -1,4 +1,4 @@
-const { Invoice } = require('../context/context');
+const { Invoice, Client } = require('../context/context');
 
 module.exports = function (app) {
 
@@ -26,7 +26,21 @@ module.exports = function (app) {
     });
 
     app.route('/api/invoice/record').get((req, res, next) => {
-        Invoice.findAll({attributes: ['consumo', 'fecha']})
+        Invoice.findAll({ attributes: ['consumo', 'fecha'] })
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
+    });
+
+    app.route('/api/invoice/check').get((req, res, next) => {
+        Client.findAll({
+            include: [
+                { model: Invoice, as: 'invoices' }
+            ]
+        })
             .then(users => {
                 res.json(users)
             })
@@ -36,7 +50,7 @@ module.exports = function (app) {
     });
 
     app.route('/api/invoice/payment/:id').get((req, res, next) => {
-        Invoice.findAll({attributes: ['valor']})
+        Invoice.findAll({ attributes: ['valor'] })
             .then(users => {
                 res.json(users)
             })

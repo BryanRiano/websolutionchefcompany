@@ -18,7 +18,11 @@ const Client = ClientModel(sequelize, Sequelize);
 const Invoice = InvoiceModel(sequelize, Sequelize);
 const Payment = PaymentModel(sequelize, Sequelize);
 
-Invoice.belongsTo(Client);
+Client.hasMany(Invoice, {foreignKey: 'idcliente', as: 'invoices'});
+
+/* sequelize.sync({ force: true }).then(() => {
+    console.log("Drop and re-sync db.");
+  }); */
 
 module.exports = {
     Client,

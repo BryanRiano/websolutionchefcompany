@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-12">
+        <h2>Lista de Pagos</h2>
+        <button type="button" class="btn btn-primary mr-2 my-2" routerLink="/">Inicio </button>
+      <button type="button" class="btn btn-primary mr-2 my-2" routerLink="/pagos/crear">Crear Pago </button>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Pago No.</th>
+                <th scope="col">ID Cliente</th>
+                <th scope="col">No. Factura</th>
+                <th scope="col">Valor</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clientList">
+                <th scope="row">{{client.id}}</th>
+                <td>{{client.cliente}}</td>
+                <td>{{client.factura}}</td>
+                <td>{{client.valor}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

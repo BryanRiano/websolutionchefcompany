@@ -6,6 +6,8 @@ import { routingApplication, applicationRoutingProvider } from './app.routing';
 import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { InvoicesModule } from './invoices/invoices.module';
+import { PaymentsModule } from './payments/payments.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { FormsModule } from '@angular/forms';
     routingApplication,
     HomeModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    InvoicesModule,
+    PaymentsModule
   ],
   providers: [applicationRoutingProvider],
   bootstrap: [AppComponent]

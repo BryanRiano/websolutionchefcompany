@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="col-md-12">
+        <h2>Lista de Clientes y Facturas</h2>
+        <button type="button" class="btn btn-primary mr-2 my-2">Inicio </button>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Identificacion</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Facturas pagas</th>
+                <th scope="col">Factura por pagar</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clientList">
+                <th scope="row">{{client.identificacion}}</th>
+                <td>{{client.nombre}}</td>
+                <td>{{client.apellido}}</td>
+                <td><ul class="list-unstyled"><li *ngFor="let invoice of client.invoices"><p *ngIf="invoice.pago">{{invoice.id}}</p></li></ul></td>
+                <td><ul class="list-unstyled"><li *ngFor="let invoice of client.invoices"><p *ngIf="!invoice.pago">{{invoice.id}}</p></li></ul></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
