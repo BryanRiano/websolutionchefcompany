@@ -1,4 +1,4 @@
-const { Client } = require('../context/context');
+const { Client, Invoice } = require('../context/context');
 
 module.exports = function (app) {
 
@@ -45,8 +45,10 @@ module.exports = function (app) {
           });
     })
 
-    app.route('/api/client/invoices').get((req, res, next) => {
-      Client.findAll()
+    app.route('/api/client/invoices/:id').get((req, res, next) => {
+      Client.findAll({ include: [
+        { model: Invoice, where: { idcliente: req.params.id } }
+    ]})
           .then(users => {
               res.json(users)
           })

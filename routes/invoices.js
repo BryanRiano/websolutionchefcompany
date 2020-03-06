@@ -24,4 +24,24 @@ module.exports = function (app) {
                 res.json(err)
             })
     });
+
+    app.route('/api/invoice/record').get((req, res, next) => {
+        Invoice.findAll({attributes: ['consumo', 'fecha']})
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
+    });
+
+    app.route('/api/invoice/payment/:id').get((req, res, next) => {
+        Invoice.findAll({attributes: ['valor']})
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
+    });
 }

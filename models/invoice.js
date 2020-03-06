@@ -5,7 +5,9 @@ module.exports = (sequelize, type) => {
           primaryKey: true,
           autoIncrement: true
         },
-        cliente: type.INTEGER,
-        valor: type.DECIMAL
+        idcliente: type.INTEGER,
+        valor: type.DECIMAL,
+        consumo: type.INTEGER,
+        fecharegistro: type.DATE
     })
   }

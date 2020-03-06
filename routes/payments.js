@@ -22,4 +22,14 @@ module.exports = function (app) {
                 res.json(err)
             })
     });
+
+    app.route('/api/payment/invoice/:id').get((req, res, next) => {
+        Invoice.findAll()
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
+    });
 }
