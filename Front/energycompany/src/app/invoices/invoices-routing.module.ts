@@ -5,6 +5,7 @@ import { InvoicesListComponent } from './invoices-list.component';
 import { InvoicesCreateComponent } from './invoices-create.component';
 import { InvoicesCheckComponent } from './invoices-check.component';
 import { InvoicesRecordComponent } from './invoices-record.component';
+import { InvoicesPaymentComponent } from './invoices-payment.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path: 'facturas/consumo',
     component: InvoicesRecordComponent
+  },
+  {
+    path: 'facturas/pago',
+    component: InvoicesPaymentComponent
   }
 ];
 

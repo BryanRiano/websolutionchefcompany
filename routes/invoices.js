@@ -49,8 +49,8 @@ module.exports = function (app) {
             })
     });
 
-    app.route('/api/invoice/payment/:id').get((req, res, next) => {
-        Invoice.findAll({ attributes: ['valor'] })
+    app.route('/api/invoice/payment').get((req, res, next) => {
+        Invoice.findAll({ where: {pago: false} })
             .then(users => {
                 res.json(users)
             })

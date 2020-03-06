@@ -26,6 +26,11 @@ export class InvoicesService {
     return this.apiService.Get('invoice/record', Filters);
   }
 
+  payment(): Observable <any> | undefined {
+    const Filters = new Array<number>();
+    return this.apiService.Get('invoice/payment', Filters);
+  }
+
   Save(edit: boolean, ObjectValue: any): Observable<any> {
     if(edit === false) {
       return this.apiService.Post('invoice/create', ObjectValue).pipe(
