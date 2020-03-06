@@ -1,7 +1,7 @@
 # websolutionchefcompany
 Aplicacion web para facturacion de energía.
 
-#instalación
+# instalación
 
 1. Instalar NodeJs
 https://nodejs.org/es/download/
