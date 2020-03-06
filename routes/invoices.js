@@ -1,40 +1,27 @@
+const { Invoice } = require('../context/context');
+
 module.exports = function (app) {
 
     app.route('/api/invoice/create').post((req, res, next) => {
         if (req.body) {
-            req.body.id = uniqid();
-            User.create(req.body, (err, result) => {
-                if (err) return next(err);
-                if (result) {
-                    res.status(200).send({
-                        'status': 'OK',
-                        'text': 'Usuario creado'
-                    });
-                }
-            })
+            Invoice.create(req.body)
+                .then(user => res.json(user))
+                .catch(error => res.json(error))
         } else {
             res.status(500).send({
                 'status': 'ERR',
-                'text': 'Error al crear el usuario'
+                'text': 'Error al crear el cliente'
             });
         }
     });
 
     app.route('/api/invoice/list').get((req, res, next) => {
-        User.find((err, result) => {
-            if (err) return next(err);
-            if (result) {
-                res.status(200).send({
-                    'status': 'OK',
-                    'text': 'Usuarios encontrados',
-                    'datos': result
-                });
-            } else {
-                res.status(500).send({
-                    'status': 'ERR',
-                    'text': 'No se encontraron usuarios'
-                });
-            }
-        })
+        Invoice.findAll()
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     });
 }

@@ -1,74 +1,47 @@
+const { Client } = require('../context/context');
+
 module.exports = function (app) {
 
     app.route('/api/client/create').post((req, res, next) => {
         if (req.body) {
-            req.body.id = uniqid();
-            User.create(req.body, (err, result) => {
-                if (err) return next(err);
-                if (result) {
-                    res.status(200).send({
-                        'status': 'OK',
-                        'text': 'Usuario creado'
-                    });
-                }
-            })
+            Client.create(req.body)
+                .then(user => res.json(user))
+                .catch(error => res.json(error))
         } else {
             res.status(500).send({
                 'status': 'ERR',
-                'text': 'Error al crear el usuario'
+                'text': 'Error al crear el cliente'
             });
         }
     });
 
     app.route('/api/client/list').get((req, res, next) => {
-        User.find((err, result) => {
-            if (err) return next(err);
-            if (result) {
-                res.status(200).send({
-                    'status': 'OK',
-                    'text': 'Usuarios encontrados',
-                    'datos': result
-                });
-            } else {
-                res.status(500).send({
-                    'status': 'ERR',
-                    'text': 'No se encontraron usuarios'
-                });
-            }
-        })
+        Client.findAll()
+            .then(users => {
+                res.json(users)
+            })
+            .catch(err => {
+                res.json(err)
+            })
     });
 
     app.route('/api/client/update/:id').put((req, res, next) => {
-        User.findOneAndRemove({ 'id': req.params.id }, (err, result) => {
-            if (err) return next(err);
-            if (result) {
-                res.status(200).send({
-                    'status': 'OK',
-                    'text': 'Usuario Eliminado'
-                });
-            } else {
-                res.status(500).send({
-                    'status': 'ERR',
-                    'text': 'Error al eliminar el usuario'
-                });
+        Client.update(req.body, {
+            where: {
+              id: req.params.id
             }
-        })
+          }).then((users) => {
+            res.json(users)
+          });
     })
 
     app.route('/api/client/delete/:id').delete((req, res, next) => {
-        User.findOneAndRemove({ 'id': req.params.id }, (err, result) => {
-            if (err) return next(err);
-            if (result) {
-                res.status(200).send({
-                    'status': 'OK',
-                    'text': 'Usuario Eliminado'
-                });
-            } else {
-                res.status(500).send({
-                    'status': 'ERR',
-                    'text': 'Error al eliminar el usuario'
-                });
+        Client.destroy({
+            where: {
+              id: req.params.id
             }
-        })
+          }).then((users) => {
+            res.json(users)
+          });
     })
 }
