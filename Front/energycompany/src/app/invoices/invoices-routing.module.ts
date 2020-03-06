@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { InvoicesListComponent } from './invoices-list.component';
 import { InvoicesCreateComponent } from './invoices-create.component';
 import { InvoicesCheckComponent } from './invoices-check.component';
+import { InvoicesRecordComponent } from './invoices-record.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'facturas/check',
     component: InvoicesCheckComponent
+  },
+  {
+    path: 'facturas/consumo',
+    component: InvoicesRecordComponent
   }
 ];
 

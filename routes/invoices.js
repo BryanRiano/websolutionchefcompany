@@ -26,7 +26,7 @@ module.exports = function (app) {
     });
 
     app.route('/api/invoice/record').get((req, res, next) => {
-        Invoice.findAll({ attributes: ['consumo', 'fecha'] })
+        Invoice.findAll()
             .then(users => {
                 res.json(users)
             })

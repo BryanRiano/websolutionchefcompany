@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-md-12">
+        <h2>Lista de Consumos</h2>
+        <button type="button" class="btn btn-primary mr-2 my-2">Inicio </button>
+    </div>
+</div>
+<div class="container">
+    <div class="col-md-12">
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Factura No.</th>
+                <th scope="col">Cliente</th>
+                <th scope="col">Consumo</th>
+                <th scope="col">Fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clientList">
+                <th scope="row">{{client.id}}</th>
+                <td>{{client.idcliente}}</td>
+                <td>{{client.consumo}}</td>
+                <td>{{client.fecharegistro | date}}</td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>
