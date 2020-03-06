@@ -1,8 +1,8 @@
 {
     "database": {
-        "host": "",
-        "database": "",
-        "user": "",
+        "host": "localhost",
+        "database": "energycompany",
+        "user": "root",
         "password": ""
     }
 }
