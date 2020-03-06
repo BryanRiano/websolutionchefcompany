@@ -1,0 +1,24 @@
+{
+  "name": "websolutionchefcompany",
+  "version": "1.0.0",
+  "description": "Aplicacion web para facturacion energia",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryanRiano/websolutionchefcompany.git"
+  },
+  "keywords": [
+    "nodejs",
+    "angular",
+    "express"
+  ],
+  "author": "Brayan Riaño",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BryanRiano/websolutionchefcompany/issues"
+  },
+  "homepage": "https://github.com/BryanRiano/websolutionchefcompany#readme"
+}
