@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-md-12">
+        <form #form="ngForm" (ngSubmit)="saveElement(form)">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Identificacion</label>
+                <input type="number" [(ngModel)]="mainObject.identificacion" name="identificacion" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Nombre</label>
+              <input type="text" [(ngModel)]="mainObject.nombre" name="nombre" ngModel class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Apellido</label>
+              <input type="text" [(ngModel)]="mainObject.apellido" name="apellido" ngModel class="form-control" id="exampleInputPassword1">
+            </div>
+            <button *ngIf="!edit" type="submit" class="btn btn-primary">Registrar</button>
+            <button *ngIf="edit" type="submit" class="btn btn-primary">Actualizar</button>
+          </form>
+    </div>
+</div>

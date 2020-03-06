@@ -25,7 +25,24 @@ export class AppService {
     for (const tuple of Object.keys(methodParams)) {
       EndPointRequest += tuple + '=' + methodParams[tuple] + '&';
     }
-
     return this._http.get(EndPointRequest.slice(0, -1));
+  }
+
+  Post(methodService: string, methodParams: object): Observable<any> {
+    const EndPointRequest = `${this.endPointService}${methodService}`;
+    return this._http.post(EndPointRequest, methodParams);
+  }
+
+  Put(methodService: string, methodParams: object): Observable<any> {
+    const EndPointRequest = `${this.endPointService}${methodService}`;
+    return this._http.put(EndPointRequest, methodParams);
+  }
+
+  Delete(methodService: string, methodParams: HttpParams): Observable<any> {
+    let EndPointRequest = this.endPointService + methodService + '?';
+    for (const tuple of Object.keys(methodParams)) {
+      EndPointRequest += tuple + '=' + methodParams[tuple] + '&';
+    }
+    return this._http.delete(EndPointRequest.slice(0, -1));
   }
 }
