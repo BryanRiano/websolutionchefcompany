@@ -1,4 +1,4 @@
-export default function (app) {
+module.exports = function (app) {
 
     app.route('/api/invoice/create').post((req, res, next) => {
         if (req.body) {
