@@ -12,7 +12,7 @@ export class ClientsService {
 
   getAll(): Observable <any> | undefined {
     const Filters = new Array<number>();
-    return this.apiService.Get('clients/list', Filters);
+    return this.apiService.Get('client/list', Filters);
   }
 
   private handleError(err: HttpErrorResponse) {
