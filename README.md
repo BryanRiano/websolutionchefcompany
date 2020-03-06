@@ -7,7 +7,7 @@ Aplicacion web para facturacion de energía.
 https://nodejs.org/es/download/
 2. Abrir una terminal en la carpeta principal del proyecto
 3. Ejecutar `npm install`
-Entrar a la carpeta config y colocar las variables de la base de datos mysql
+Entrar a la carpeta config y colocar las variables de la base de datos mysql, sequelize orm crea automaticamente las entidades
 4. Ejecutar `node index.js`
 5. Para ejecutar el frontend instalar angular cli
 https://cli.angular.io/
