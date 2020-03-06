@@ -44,4 +44,14 @@ module.exports = function (app) {
             res.json(users)
           });
     })
+
+    app.route('/api/client/invoices').get((req, res, next) => {
+      Client.findAll()
+          .then(users => {
+              res.json(users)
+          })
+          .catch(err => {
+              res.json(err)
+          })
+  });
 }

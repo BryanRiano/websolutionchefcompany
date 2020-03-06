@@ -18,6 +18,8 @@ const Client = ClientModel(sequelize, Sequelize);
 const Invoice = InvoiceModel(sequelize, Sequelize);
 const Payment = PaymentModel(sequelize, Sequelize);
 
+Invoice.belongsTo(Client);
+
 module.exports = {
     Client,
     Invoice,
